@@ -1,11 +1,11 @@
 package semaphore
 
-type semaphore chan struct{}
+type Semaphore chan struct{}
 
-func (s *semaphore) acquire() {
+func (s *Semaphore) acquire() {
 	*s <- struct{}{}
 }
 
-func (s *semaphore) release() {
+func (s *Semaphore) release() {
 	<-*s
 }
